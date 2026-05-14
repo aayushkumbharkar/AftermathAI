@@ -28,6 +28,9 @@ STRICT TONE RULES:
 - Be direct, authoritative, and precise.
 - Avoid absolute claims. Prefer trade-offs and constraints over one-sided conclusions.
 - If the decision involves a trade-off, explicitly acknowledge both advantages and limitations before identifying risks.
+- Do not use percentages or numerical estimates unless they are clearly justified. Prefer qualitative, concrete descriptions.
+- Replace abstract risks with specific scenarios that could realistically happen in production.
+- Where possible, describe what debugging or operational pain would look like in real scenarios.
 - Do not repeat points across sections.
 - Avoid generic statements.`;
 

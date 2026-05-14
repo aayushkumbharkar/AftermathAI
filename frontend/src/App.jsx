@@ -59,7 +59,7 @@ function CheckIcon() {
 }
 
 export default function App() {
-  const [decision, setDecision] = useState("");
+  const [decision, setDecision] = useState("I will build an AI product without validating demand");
   const [sections, setSections] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -165,7 +165,7 @@ export default function App() {
           <textarea
             id="decision-input"
             className="input-textarea"
-            placeholder="Describe a decision you're about to make..."
+            placeholder="Describe a decision you're about to make... (e.g., I will launch fast without talking to users)"
             value={decision}
             onChange={(e) => setDecision(e.target.value)}
             onKeyDown={handleKeyDown}

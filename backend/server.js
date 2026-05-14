@@ -30,7 +30,10 @@ STRICT TONE RULES:
 - If the decision involves a trade-off, explicitly acknowledge both advantages and limitations before identifying risks.
 - Do not use percentages or numerical estimates unless they are clearly justified. Prefer qualitative, concrete descriptions.
 - Replace abstract risks with specific scenarios that could realistically happen in production.
+- When describing a risk, explain how it shows up in practice, not just what the risk is.
+- At least one point in the response must describe a concrete, real-world scenario that an engineer or builder would recognize immediately. Prefer specific situations over general statements.
 - Where possible, describe what debugging or operational pain would look like in real scenarios.
+- Include at least one insight that feels non-obvious or counterintuitive.
 - Do not repeat points across sections.
 - Avoid generic statements.`;
 

@@ -4,6 +4,7 @@
  */
 
 const SECTION_CONFIG = [
+  { key: "brutal", title: "Brutal Summary", variant: "brutal" },
   { key: "outcome", title: "Direct Outcome", variant: "outcome" },
   { key: "effects", title: "Second-Order Effects", variant: "effects" },
   { key: "failure", title: "Failure Points", variant: "failure" },

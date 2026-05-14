@@ -41,12 +41,30 @@ function ErrorIcon() {
   );
 }
 
+function CopyIcon() {
+  return (
+    <svg className="btn-copy__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+    </svg>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg className="btn-copy__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+  );
+}
+
 export default function App() {
   const [decision, setDecision] = useState("");
   const [sections, setSections] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [meta, setMeta] = useState(null);
+  const [copied, setCopied] = useState(false);
   const resultsRef = useRef(null);
 
   const handleAnalyze = async () => {
@@ -96,6 +114,29 @@ export default function App() {
     if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
       handleAnalyze();
     }
+  };
+
+  const handleCopy = () => {
+    if (!sections.length) return;
+    
+    let text = `# Aftermath AI Analysis\n\n**Decision:** ${decision}\n\n`;
+    sections.forEach(sec => {
+      text += `## ${sec.title}\n`;
+      sec.content.forEach(block => {
+        if (block.type === 'paragraph') {
+          text += `${block.content}\n\n`;
+        } else if (block.type === 'list') {
+          block.items.forEach(item => {
+            text += `- ${item}\n`;
+          });
+          text += `\n`;
+        }
+      });
+    });
+
+    navigator.clipboard.writeText(text.trim());
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   const charCount = decision.length;
@@ -176,6 +217,10 @@ export default function App() {
                 )}
               </div>
             )}
+            <button className="btn-copy" onClick={handleCopy} aria-label="Copy to clipboard">
+              {copied ? <CheckIcon /> : <CopyIcon />}
+              {copied ? "Copied!" : "Copy"}
+            </button>
           </div>
           {sections.map((section) => (
             <SectionCard key={section.key} section={section} />

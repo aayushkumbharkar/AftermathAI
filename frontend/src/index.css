@@ -30,6 +30,7 @@
   --caution: #e879f9;
   --caution-dim: rgba(232, 121, 249, 0.08);
 
+  --section-brutal: #fafafa;
   --section-outcome: #3b82f6;
   --section-effects: #8b5cf6;
   --section-failure: #ef4444;
@@ -289,6 +290,35 @@ body::before {
 
 .btn-analyze:hover:not(:disabled) .btn-analyze__icon {
   transform: translateX(2px);
+}
+
+/* ── Copy Button ── */
+.btn-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-left: 12px;
+}
+
+.btn-copy:hover {
+  background: var(--border-subtle);
+  color: var(--text-primary);
+  border-color: var(--border-accent);
+}
+
+.btn-copy__icon {
+  width: 14px;
+  height: 14px;
 }
 
 /* ── Loading State ── */
@@ -587,6 +617,7 @@ body::before {
 }
 
 /* Section-specific indicator colors */
+.section-card--brutal .section-card__indicator { background: var(--section-brutal); }
 .section-card--outcome .section-card__indicator { background: var(--section-outcome); }
 .section-card--effects .section-card__indicator { background: var(--section-effects); }
 .section-card--failure .section-card__indicator { background: var(--section-failure); }
@@ -597,6 +628,7 @@ body::before {
 .section-card--timeline .section-card__indicator { background: var(--section-timeline); }
 .section-card--critique .section-card__indicator { background: var(--section-critique); }
 
+.section-card--brutal .section-card__text ul li::before { background: var(--section-brutal); }
 .section-card--outcome .section-card__text ul li::before { background: var(--section-outcome); }
 .section-card--effects .section-card__text ul li::before { background: var(--section-effects); }
 .section-card--failure .section-card__text ul li::before { background: var(--section-failure); }

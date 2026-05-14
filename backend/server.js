@@ -24,7 +24,11 @@ You focus on:
 - constraints
 - trade-offs
 
-Avoid generic statements.`;
+STRICT TONE RULES:
+- Never use "may", "might", "could", "perhaps", or "possibly". State what WILL happen.
+- Be direct and authoritative.
+- Do not repeat points across sections.
+- Avoid generic statements.`;
 
 // ── User Prompt Template ───────────────────────────────────────────────────────
 
@@ -34,6 +38,9 @@ function buildUserPrompt(decision) {
 "${decision}"
 
 Structure your response exactly as:
+
+Brutal Summary:
+...
 
 Direct Outcome:
 ...
@@ -72,8 +79,10 @@ Self-Critique:
 ...
 
 Rules:
-- Be specific
+- Be specific and direct
 - Be critical
+- Remove "may", "might", "could", "perhaps"
+- Remove repetition across sections
 - Avoid vague language
 - No motivational tone
 - No generic filler`;
